@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
                     putExtra("USERNAME", binding.usernameField.text.toString().trim())
                     putExtra("EMAIL", binding.emailField.text.toString().trim())
                     putExtra("PHONE", binding.phoneField.text.toString().trim())
+                    putExtra("GENDER", binding.gender.text.toString().trim())
                 }
                 startActivity(intent)
             } else {
@@ -42,12 +43,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     // Fungsi untuk memvalidasi input pengguna
     private fun validateInput(): Boolean {
         val username = binding.usernameField.text.toString().trim()
         val email = binding.emailField.text.toString().trim()
         val phone = binding.phoneField.text.toString().trim()
         val password = binding.passwordField.text.toString().trim()
+        val gender = binding.gender.text.toString().trim()
 
         // Cek apakah semua input tidak kosong
         Log.d(TAG, "Validating input")  // Log ketika mulai validasi
@@ -77,6 +80,12 @@ class MainActivity : AppCompatActivity() {
             binding.passwordField.error = "Password must be at least 6 characters"
             Log.e(TAG, "Invalid password: $password")  // Log error jika password kurang dari 6 karakter
             Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        if (TextUtils.isEmpty(gender)) {
+            binding.gender.error = "Gender cannot be empty"
+            Toast.makeText(this, "Please enter a valid gender", Toast.LENGTH_SHORT).show()
             return false
         }
 
