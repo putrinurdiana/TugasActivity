@@ -17,10 +17,12 @@ class HomeActivity : AppCompatActivity() {
         val username = intent.getStringExtra("USERNAME") ?: "User"
         val email = intent.getStringExtra("EMAIL") ?: "N/A"
         val phone = intent.getStringExtra("PHONE") ?: "N/A"
+        val gender = intent.getStringExtra("GENDER") ?: "N/A"
 
         // Update the TextViews with the received data
         binding.newRegister.text = "Username: $username"
         binding.email1.text = "Email: $email"
         binding.phone1.text = "Phone: $phone"
+        binding.textgender.text = " $gender"
     }
 }

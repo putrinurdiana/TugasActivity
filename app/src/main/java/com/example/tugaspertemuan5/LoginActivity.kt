@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
         val username = intent.getStringExtra("USERNAME") ?: ""
         val email = intent.getStringExtra("EMAIL") ?: ""
         val phone = intent.getStringExtra("PHONE") ?: ""
+        val gender = intent.getStringExtra("GENDER") ?: ""
 
         // Logika untuk tombol login
         binding.btnLogin.setOnClickListener {
@@ -33,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
                     putExtra("USERNAME", username)
                     putExtra("EMAIL", email)
                     putExtra("PHONE", phone)
+                    putExtra("GENDER", gender)
                 }
                 startActivity(intent)
             } else {
